@@ -18,3 +18,7 @@ Input: ZK-STARK proof, web3 provider; Output: Buffer Account Address where proof
 
 Here we provide an end to end example for how to write, prove, and verify a computation using Zilch. We will utilise the fib8 script in this example. For more examples, please see the Examples folder.
 <Coming Soon>
+
+Links:
+ZILCH - custom cli: https://github.com/cryptohariseldon/solana-custom
+ZILCH - custom Miden Verifer: https://github.com/cryptohariseldon/miden-vm
