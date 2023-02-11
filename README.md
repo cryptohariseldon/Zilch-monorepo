@@ -1,7 +1,7 @@
 # Zilch-monorepo
 Scripts and Examples to test Zilch ZK-rollups on Solana
 
-Zilch is the first ever ZK-STARK rollup built on solana! Zilch utilises the MidenVM architecture to write provable programs, and thereafter verify them. 
+Zilch is the first ever ZK-STARK rollup built on solana! Zilch utilises the MidenVM architecture to write provable programs, and thereafter verify them.
 We chose Miden VM instead of other zk-STARK verifiers (such as winterfell), as Miden Assembly abstracts away the need to design computational-specific circuits. Moreover, Miden Assemly can serve as a high level compilation target for a host of languages, such as Rust, C++, Python. We leave building multi-language compilers for the MidenVM for future work.
 
 ## Zilch Architecture
@@ -18,6 +18,14 @@ Input: ZK-STARK proof, web3 provider; Output: Buffer Account Address where proof
 
 Here we provide an end to end example for how to write, prove, and verify a computation using Zilch. We will utilise the fib8 script in this example. For more examples, please see the Examples folder.
 <Coming Soon>
+
+Step 1:
+
+Generate Proof and write to file:
+`cargo build`
+`cargo run`
+
+This will write serialised STARKPROOF to a local file called "proofd.bin". We will utilise this in the next step to write the proof on chain to a buffer account.
 
 Links:
 ZILCH - custom cli: https://github.com/cryptohariseldon/solana-custom
