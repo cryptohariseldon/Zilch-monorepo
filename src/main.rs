@@ -14,17 +14,40 @@ struct Data {
     s: String,
 }
 
+
 fn tester() -> Result<(), bincode::Error> {
     let data = Data {
         x: 42,
         y: 3.14,
-        s: "Hello, World!".to_string(),
+        s: "Test file!".to_string(),
     };
 
     let serialized = serialize(&data)?.to_vec();
 
-    let mut file = File::create("data.bin")?;
-    file.write_all(&serialized)?;
+    //let mut file = File::create("data.bin")?;
+    //file.write_all(&serialized)?;
+    println!("Test file written");
+
+    // instantiate the assembler
+    let assembler = Assembler::default();
+
+    // this is our program, we compile it from assembly code
+    let program = assembler.compile("begin push.3 push.5 add end").unwrap();
+
+    // let's execute it and generate a STARK proof
+    let (outputs, proof) = prove(
+        &program,
+        &ProgramInputs::none(),   // we won't provide any inputs
+        &ProofOptions::default(), // we'll be using default options
+    )
+    .unwrap();
+
+    let serializedproof = proof.to_bytes();
+    let mut filer = File::create("proofd.bin");
+    filer?.write_all(&serializedproof)?;
+    println!("Proof file written");
+
+    //println!("{}", proof);
 
     Ok(())
 }
@@ -45,10 +68,12 @@ fn main() {
     )
     .unwrap();
 
+    let serializedproof = proof.to_bytes();
+    //println!("{}", proof);
 
 
     // the output should be 8
     // assert_eq!(vec![8], outputs);
     tester();
-    println!("Hello, world!");
+    println!("All done!");
 }
