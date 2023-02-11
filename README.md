@@ -19,6 +19,9 @@ Input: ZK-STARK proof, web3 provider; Output: Buffer Account Address where proof
 Here we provide an end to end example for how to write, prove, and verify a computation using Zilch. We will utilise the fib8 script in this example. For more examples, please see the Examples folder.
 <Coming Soon>
 
+In a different terminal window, start the local validator:
+`solana-test-validator`
+
 Step 1:
 
 Generate Proof and write to file:
@@ -26,6 +29,24 @@ Generate Proof and write to file:
 `cargo run`
 
 This will write serialised STARKPROOF to a local file called "proofd.bin". We will utilise this in the next step to write the proof on chain to a buffer account.
+
+Step 2:
+Write proof on-chain
+
+Background:
+Install custom cli
+`git clone https://github.com/cryptohariseldon/solana-custom`
+`cd solana-custom/cli`
+`cargo build`
+*note - the next commands will not work with the regular solana-cli, please install Zilch's custom solana-cli as explained above to proceed.
+
+Write data generated in step-1 on-chain ,split over multiple txns.
+`cargo run program write-buffer ../../proofd.bin`
+
+If successful, You will get an output as follows:
+``
+
+Great job, the proof is now written on-chain! Note the buffer account address, it will be utilised later in the verification steps.
 
 Links:
 ZILCH - custom cli: https://github.com/cryptohariseldon/solana-custom
