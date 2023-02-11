@@ -44,7 +44,10 @@ Write data generated in step-1 on-chain ,split over multiple txns.
 `cargo run program write-buffer ../../proofd.bin`
 
 If successful, You will get an output as follows:
-``
+`
+checking check elf
+bypassed check elf
+Buffer: 4CN8ACDmTfchYRGYaiDDx6TVHLbQSk61jYNXuvaaN34x`
 
 Great job, the proof is now written on-chain! Note the buffer account address, it will be utilised later in the verification steps.
 
