@@ -7,10 +7,12 @@ name = "Zilch-monorepo"
 version = "0.1.0"
 dependencies = [
  "bincode",
+ "miden",
  "miden-assembly",
  "miden-processor",
  "miden-prover",
  "serde",
+ "winterfell",
 ]
 
 [[package]]
@@ -168,6 +170,22 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2dffe52ecf27772e601905b7522cb4ef790d2cc203488bbd0e2fe85fcb74566d"
 
 [[package]]
+name = "miden"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e8d8a25e092075f58af207e2a42bad5fbbf40c5200f13d2432a806db751a52b5"
+dependencies = [
+ "log",
+ "miden-air",
+ "miden-assembly",
+ "miden-core",
+ "miden-processor",
+ "miden-prover",
+ "miden-stdlib",
+ "miden-verifier",
+]
+
+[[package]]
 name = "miden-air"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -221,6 +239,28 @@ dependencies = [
  "miden-core",
  "miden-processor",
  "winter-prover",
+]
+
+[[package]]
+name = "miden-stdlib"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6b2a52fd1a44b136dbce7a513ebe5a407dfebc17160af8a2707383df731fc098"
+dependencies = [
+ "miden-assembly",
+ "miden-core",
+]
+
+[[package]]
+name = "miden-verifier"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d942d5b0bdcad47359d52534ef6fbccebffc0c713d2c7ca65ab603c7965c0a8b"
+dependencies = [
+ "miden-air",
+ "miden-assembly",
+ "miden-core",
+ "winter-verifier",
 ]
 
 [[package]]
@@ -432,3 +472,26 @@ name = "winter-utils"
 version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7f0dbf7ca6aa5893b59928718bf1e7dbe7279bb277b5aa4c4898ddf5004f9417"
+
+[[package]]
+name = "winter-verifier"
+version = "0.4.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "922be4651b76aa80e132386a97d23788e2bc542d37b3c187a39998876a8094b6"
+dependencies = [
+ "winter-air",
+ "winter-crypto",
+ "winter-fri",
+ "winter-math",
+ "winter-utils",
+]
+
+[[package]]
+name = "winterfell"
+version = "0.4.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3328b7973cd0b75bbd917e906bdebee48718c690bea434280e2f0157408e63c0"
+dependencies = [
+ "winter-prover",
+ "winter-verifier",
+]
