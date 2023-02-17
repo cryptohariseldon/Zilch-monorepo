@@ -1,0 +1,22 @@
+{
+  "name": "zilch-monorepo",
+  "version": "1.0.0",
+  "description": "Scripts and Examples to test Zilch ZK-rollups on Solana",
+  "main": "index.js",
+  "scripts": {
+    "test": "node run client/data.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryptohariseldon/Zilch-monorepo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cryptohariseldon/Zilch-monorepo/issues"
+  },
+  "homepage": "https://github.com/cryptohariseldon/Zilch-monorepo#readme",
+  "dependencies": {
+    "@solana/web3.js": "^1.73.2"
+  }
+}
