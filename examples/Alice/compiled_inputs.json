@@ -1,0 +1,1 @@
+{"inputs": "{\n    \"stack_init\": [\"1\", \"1\"]\n}", "program": "begin\n    repeat.1000\n        swap dup.1 add\n    end\nend", "program_hash": "c8653f31a1098e1b83c5d4972ec544cac00aa784bba18b5a9db7478977d38e68"}

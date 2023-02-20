@@ -14,7 +14,7 @@ Input: ZK-STARK proof, web3 provider; Output: Buffer Account Address where proof
 4. Zilch - Verifier Client: A client to assist easy interaction with the on-chain Zilch Verifier Program.
 5. Zilch Monorepo - examples and scripts: This repo, which provides easy scripts to access the above workflow, and contains examples for how Zilch can be used to prove different kinds of computations, on chain.
 
-## Zilch Demo
+## Zilch Demo - basic
 
 Here we provide an end to end example for how to write, prove, and verify a computation using Zilch. We will utilise the fib8 script in this example. For more examples, please see the Examples folder.
 <Coming Soon>
@@ -50,6 +50,40 @@ bypassed check elf
 Buffer: 4CN8ACDmTfchYRGYaiDDx6TVHLbQSk61jYNXuvaaN34x`
 
 Great job, the proof is now written on-chain! Note the buffer account address, it will be utilised later in the verification steps.
+
+## ZILCH Demo - miden cli + fib8 proof Verification
+
+Clone the Zilch - custom miden repo:
+
+Generate the proof file for fib8 Proof:
+
+Write the proof on chain:
+cargo run program write-buffer '/Users/dm/Documents/zilch_solana/custom-miden/miden-vm/miden/examples/fib/fib.proof'
+
+Output :
+
+checking check elf
+bypassed check elf
+Buffer: B6pwmZ5FrTkz2yWMWMkDcduzhojLggboDuNA7T4ReuvP
+
+Read proof from on-chain account buffer, using client:
+
+replace the proof account address in client/data.js:
+`const accountAddress = 'B6pwmZ5FrTkz2yWMWMkDcduzhojLggboDuNA7T4ReuvP';` // replace with your local proof buffer account address shown above.
+
+From the Zilch_monorepo folder, run client:
+`node client/data.js`
+
+Should display:
+`Bytecode written to onchain_fib_trace.proof`
+
+Next, use the custom miden library to verify the on-chain proof:
+From the miden-custom folder -
+`./target/release/miden verify --program-hash "c8653f31a1098e1b83c5d4972ec544cac00aa784bba18b5a9db7478977d38e68" --proof /Users/dm/Documents/zilch_solana/custom-miden/Zilch-monorepo/onchain_fib_trace.proof`
+
+
+
+
 
 Links:
 ZILCH - custom cli: https://github.com/cryptohariseldon/solana-custom
