@@ -1,7 +1,8 @@
 const web3 = require('@solana/web3.js');
 const fs = require('fs');
 
-const output_file = 'onchain_fib_trace2.proof'
+//Location to write on-chain proof obtained from Bob.
+const output_file = '../examples/Alice/data/fib_trace.proof'
 //const accountAddress = 'GyS3HSjCQwU2sGsySvhL9Fa2bC8VufakoW4TpB5Bdfao';
 const accountAddress = 'B6pwmZ5FrTkz2yWMWMkDcduzhojLggboDuNA7T4ReuvP';
 
